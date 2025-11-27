@@ -10,5 +10,5 @@ import {Tasks} from './tasks/tasks';
   styleUrls: ['./app.css'],
 })
 export class App {
-  protected title = 'Lista zadań do wykonania';
+  protected title = 'Zarządzanie zadaniami';
 }
