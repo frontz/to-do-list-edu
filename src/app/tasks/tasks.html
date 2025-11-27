@@ -1,0 +1,25 @@
+<div class="container">
+  <h3>Zadania na dzisiaj</h3>
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Numer</th>
+        <th scope="col">Nazwa</th>
+        <th scope="col">Oznacz jako wykonane</th>
+        <th scope="col">Usuń</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (task of tasks; track task.id; let i = $index) {
+        <tr>
+          <td>{{ i+1 }}</td>
+          <td>{{ task.name }}</td>
+          <td><button class="btn bg-primary text-white">:-)</button></td>
+          <td><button class="btn bg-danger text-white">X</button></td>
+        </tr>}
+    </tbody>
+  </table>
+</div>
+
+
+
