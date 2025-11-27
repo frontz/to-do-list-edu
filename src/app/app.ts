@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import {Tasks} from './tasks/tasks';
+
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, Tasks],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrls: ['./app.css'],
 })
 export class App {
-  protected title = 'to-do-list';
+  protected title = 'Lista zadań do wykonania';
 }
