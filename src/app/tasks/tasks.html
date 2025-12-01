@@ -3,20 +3,23 @@
   <table class="table table-striped">
     <thead class="thead-dark">
       <tr>
-        <th scope="col">Numer</th>
-        <th scope="col">Nazwa</th>
-        <th scope="col">Oznacz jako wykonane</th>
-        <th scope="col">Usuń</th>
+        <th>Numer</th>
+        <th>Nazwa</th>
+        <th>Status</th>
+        <th>Zmień status</th>
+        <th>Usuń</th>
       </tr>
     </thead>
     <tbody>
       @for (task of tasks; track task.id; let i = $index) {
         <tr>
-          <td>{{ i+1 }}</td>
+          <td>{{ i + 1 }}</td>
           <td>{{ task.name }}</td>
-          <td><button class="btn bg-primary text-white">:-)</button></td>
-          <td><button class="btn bg-danger text-white">X</button></td>
-        </tr>}
+          <td>@if(task.done){Wykonane}@else{Czeka na wykonanie}</td>
+          <td><button class="btn bg-primary text-white" (click)="changeStatus(task)">@if(task.done){:-)}@else{:-(}</button></td>
+          <td><button class="btn bg-danger text-white" (click)="removeTask(task.id)">X</button></td>
+        </tr>
+      }
     </tbody>
   </table>
 </div>

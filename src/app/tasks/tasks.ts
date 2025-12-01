@@ -18,5 +18,13 @@ export class Tasks implements OnInit{
     this.tasks = this.taskService.getTasks();
   }
 
+  removeTask(id: number) {
+    this.tasks = this.tasks.filter(task => task.id !== id);
+  }
+
+  changeStatus(task: Task) {
+    task.done = !task.done;
+  }
+
 
 }

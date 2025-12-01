@@ -13,7 +13,7 @@ export class TasksService {
       done: true
     },
     {
-      id: 2,
+      id: 35,
       name: 'Posprzątać dom',
       done: false
     },
@@ -22,10 +22,13 @@ export class TasksService {
       name: 'Wyprowadzić psa',
       done: false
     },
+    {
+      id: 57,
+      name: 'Przeczytać rozdział książki "Angular"',
+      done: false
+    },
   ];
-
-  getTasks() {
+  getTasks(): Task[] {
     return this.tasks;
   }
-
 }
