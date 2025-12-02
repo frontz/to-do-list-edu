@@ -16,12 +16,17 @@
           <td>{{ i + 1 }}</td>
           <td>{{ task.name }}</td>
           <td>@if(task.done){Wykonane}@else{Czeka na wykonanie}</td>
-          <td><button class="btn bg-primary text-white" (click)="changeStatus(task)">@if(task.done){:-)}@else{:-(}</button></td>
+          <td><button class="btn text-white"
+                      [ngClass]="task.done ? 'bg-success' : 'bg-primary'"
+                      (click)="changeStatus(task)">
+                @if(task.done){:-)}@else{:-(}
+              </button></td>
           <td><button class="btn bg-danger text-white" (click)="removeTask(task.id)">X</button></td>
         </tr>
       }
     </tbody>
   </table>
+
   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
     Dodaj zadanie
   </button>
@@ -44,4 +49,5 @@
       </div>
     </div>
   </div>
+
 </div>

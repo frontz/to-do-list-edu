@@ -2,12 +2,13 @@ import {Component, OnInit} from '@angular/core';
 import { Task } from "../Task";
 import {TasksService} from '../services/tasks-service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {NgClass} from '@angular/common';
 
 @Component({
   selector: 'app-tasks',
   imports: [
-    ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgClass
   ],
   templateUrl: './tasks.html',
   styleUrl: './tasks.css',
@@ -17,7 +18,7 @@ export class Tasks implements OnInit{
   constructor(private taskService: TasksService) { }
 
   tasks: Task[] = [];
-  protected newTaskName: any;
+  newTaskName: string = '';
 
   ngOnInit() {
     this.tasks = this.taskService.getTasks();
@@ -33,9 +34,9 @@ export class Tasks implements OnInit{
 
   getMaxTaskId(tasks: Task[]) {
     if (!tasks || tasks.length === 0) {
-      return 0; // albo 0 – zależnie od logiki
+      return 0;
     }
-    return Math.max(...tasks.map(t => t.id));
+    return Math.max(...tasks.map(task => task.id));
   }
 
 
